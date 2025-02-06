@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,13 +25,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <a href="/" className="block">
+            <Link to="/" className="block">
               <img 
                 src="kany-logo.jpg" 
                 alt="Kany Publishing House" 
                 className="h-12 w-auto hover:opacity-80 transition-opacity"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -75,12 +76,12 @@ const Navbar = () => {
 };
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a
-    href={href}
+  <Link
+    to={href}
     className="text-kany-text hover:text-kany-orange transition-colors duration-200 text-sm font-medium"
   >
     {children}
-  </a>
+  </Link>
 );
 
 const MobileNavLink = ({
@@ -90,12 +91,12 @@ const MobileNavLink = ({
   href: string;
   children: React.ReactNode;
 }) => (
-  <a
-    href={href}
+  <Link
+    to={href}
     className="block px-3 py-2 rounded-md text-base font-medium text-kany-text hover:text-kany-orange transition-colors duration-200"
   >
     {children}
-  </a>
+  </Link>
 );
 
 export default Navbar;
